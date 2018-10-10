@@ -12,14 +12,14 @@ public class CinemaTeste {
 	    private static int opcao = -1; 
 	    private static int opcao1 = -1;
 	    private static int opcao2 = -1;
-	    //private static int opcao3 = -1; 
+	    private static int opcao3 = -1; 
 	    private static final String nomeArquivoFilmes = "/home/josephkzez/Cinema/filmes.txt";
 	    private static final String nomeArquivoSessoes = "/home/josephkzez/Cinema/sessoes.txt";
-	    //private static final String nomeArquivoSalas = "/home/josephkzez/Cinema/salas.txt";
+	    private static final String nomeArquivoSalas = "/home/josephkzez/Cinema/salas.txt";
 	    private static final CatalogoFilmes catalogoPeli = new CatalogoFilmesImpl();
 	    //criar um desse para cada um dos casos de uso
 	    private static final CatalogoSessoes catalogoSession = new CatalogoSessoesImpl();
-	    //private static final CatalogoSessao catalogoSala = new CatalogoSalaImpl();
+	    private static final CatalogoSalas catalogoRoom = new CatalogoSalasImpl();
 	    
 	    public static void main(String[] args) {
 
@@ -47,7 +47,7 @@ public class CinemaTeste {
 	                    	menusessoes();
 	                    	break;
 	                    case 3:
-	                    	//menusalas();
+	                    	menusalas();
 	                    	break;
 	                    	
 	                    default :
@@ -60,122 +60,6 @@ public class CinemaTeste {
 	                System.out.println("Erro!"); //atualizar para erro se 
 	                //for Erro em Filme, Erro em Sala, Erro em Sessao, Erro em Ingresso
 	            }
-	                    	/*while (opcao2 != 0) {
-	            	            try {
-	            	                System.out.println("Escolha opção:\n1.- Catálogo de Sessões"
-	            	                        + "\n2.- Inserir Sessão\n"
-	            	                        + "3.- Listar Sessões\n"
-	            	                        + "4.- Buscar Sessões\n"
-	            	                        + "0.- Sair");
-	            	                
-	            	                opcao2 = Integer.parseInt(scanner.nextLine());
-
-	                    	
-	                    	switch (opcao2) {
-		                    case 1:
-		                        //1. Creamos el objeto que administra el catalogo de personas
-		                        //La creacion del archivo es opcional, de todas maneras se creara 
-		                        //al escribir por primera vez en el archivo
-		                        catalogoSessao.iniciarArquivo(nomeArquivoSessoes);
-		                        break;
-		                    case 2:
-		                        //2. agregar informacion archivo
-		                        System.out.println("Digite o nome de uma sessão para adicionar::");
-		                        String nome= scanner.nextLine();
-		                        catalogoSessao.inserirSessao(nome, nomeArquivoSessoes);
-		                        break;
-		                    case 3:
-		                        //3. listar catalogo completo
-		                        catalogoSessao.listarFilmes(nomeArquivoSessoes);
-		                        break;
-		                    case 4:
-		                        //4. Buscar pelicula
-		                        System.out.println("Digite o nome de uma sessão para busca:");
-		                        String busca = scanner.nextLine();
-		                        catalogoPeli.buscaFilme(nomeArquivoFilmes, busca);
-		                        break;
-		                    case 0:
-		                        System.out.println("Saindo Gerencia de Filmes!");
-		                        break;
-		                    default:
-		                        System.out.println("Opção não reconhecida");
-		                        break;
-		                }
-		                System.out.println("\n"); 
-
-		            } catch (Exception e) {
-		                System.out.println("Erro!");
-		            }
-	            }
-
-	                    case 3: //Menu Gerência Salas
-	                        //3. listar catalogo completo
-	                        catalogoPeli.listarFilmes(nomeArquivoFilmes);
-	                        break;
-	                    case 0:
-	                        System.out.println("!Até logo!");
-	                        break;
-	                    default:
-	                        System.out.println("Opção não reconhecida");
-	                        break;
-	                }
-	                System.out.println("\n"); 
-
-	            } catch (Exception e) {
-	                System.out.println("Erro!"); //atualizar para erro se 
-	                //for Erro em Filme, Erro em Sala, Erro em Sessao, Erro em Ingresso
-	            }
-	        }
-	    	
-	        //Mientras la opcion elegida sea 0, preguntamos al usuario
-	        while (opcao != 0) {
-	            try {
-	                System.out.println("Elige opcion:\n1.- Catálogo de filmes "
-	                        + "\n2.- Inserir Filme\n"
-	                        + "3.- Listar Filmes\n"
-	                        + "4.- Busca de Filme\n"
-	                        + "0.- Sair");
-	                
-	                opcao = Integer.parseInt(scanner.nextLine());
-
-	                //Ejemplo de switch case en Java
-	                switch (opcao) {
-	                    case 1:
-	                        //1. Creamos el objeto que administra el catalogo de personas
-	                        //La creacion del archivo es opcional, de todas maneras se creara 
-	                        //al escribir por primera vez en el archivo
-	                        catalogoPeli.iniciarArquivo(nomeArquivoFilmes);
-	                        break;
-	                    case 2:
-	                        //2. agregar informacion archivo
-	                        System.out.println("Digite o nome de um filme para adicionar::");
-	                        String nome= scanner.nextLine();
-	                        catalogoPeli.inserirFilme(nome, nomeArquivoFilmes);
-	                        break;
-	                    case 3:
-	                        //3. listar catalogo completo
-	                        catalogoPeli.listarFilmes(nomeArquivoFilmes);
-	                        break;
-	                    case 4:
-	                        //4. Buscar pelicula
-	                        System.out.println("Digite o nome de um filme para busca:");
-	                        String busca = scanner.nextLine();
-	                        catalogoPeli.buscaFilme(nomeArquivoFilmes, busca);
-	                        break;
-	                    case 0:
-	                        System.out.println("!Até logo!");
-	                        break;
-	                    default:
-	                        System.out.println("Opção não reconhecida");
-	                        break;
-	                }
-	                System.out.println("\n"); 
-
-	            } catch (Exception e) {
-	                System.out.println("Erro!"); //atualizar para erro se 
-	                //for Erro em Filme, Erro em Sala, Erro em Sessao, Erro em Ingresso
-	            }
-	        }*/
 	    }		
 
 
@@ -284,6 +168,60 @@ public class CinemaTeste {
     }
 
 	        }
+	        
+	        //IMPLEMENTANDO O MENU SALAS
+	        public static void menusalas() {
+
+	           	while (opcao3 != 0) {
+    	            try {
+    	                System.out.println("Escolha a opção:\n1.- Catálogo de Salas"
+    	                        + "\n2.- Inserir Sala\n"
+    	                        + "3.- Listar Salas\n"
+    	                        + "4.- Busca de Salas\n"
+    	                        + "0.- Sair");
+    	                
+    	                opcao3 = Integer.parseInt(scanner.nextLine());
+
+	        	
+	        	switch (opcao3) {
+                case 1:
+                    //1. Creamos el objeto que administra el catalogo de personas
+                    //La creacion del archivo es opcional, de todas maneras se creara 
+                    //al escribir por primera vez en el archivo
+                    catalogoRoom.iniciarArquivo(nomeArquivoSalas);
+                    break;
+                case 2:
+                    //2. agregar informacion archivo
+                    System.out.println("Digite o nome de uma sala para adicionar::");
+                    String nome= scanner.nextLine();
+                    catalogoRoom.inserirSala(nome, nomeArquivoSalas);
+                    break;
+                case 3:
+                    //3. listar catalogo completo
+                    catalogoRoom.listarSalas(nomeArquivoSalas);
+                    break;
+                case 4:
+                    //4. Buscar sala
+                    System.out.println("Digite o nome de uma sala para busca:");
+                    String busca = scanner.nextLine();
+                    catalogoRoom.buscaSala(nomeArquivoSalas, busca);
+                    break;
+                case 0:
+                    System.out.println("Saindo Gerencia de Salas!");
+                    break;
+                default:
+                    System.out.println("Opção não reconhecida");
+                    break;
+	        	}
+            System.out.println("\n"); 
+
+        } catch (Exception e) {
+            System.out.println("Erro!");
+        }
+    }
+
+	        }
+	        
 }
 	        
 	        

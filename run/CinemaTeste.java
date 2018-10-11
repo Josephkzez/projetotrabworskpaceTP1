@@ -6,6 +6,7 @@ import transacao.*;
 public class CinemaTeste {
 	/**
 	 * @author Jose e Danilo
+	 * @version 1.0
 	 * Classe executora do test da aplicacao 
 	 */
 		private static final Scanner scanner = new Scanner(System.in);
